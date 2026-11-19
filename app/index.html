@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Sunset Cover Lab</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <header>
+      <h1>Neon Sunset Cover Lab</h1>
+      <p>Turn any photo into GTA-style cover art. Offline, on your machine.</p>
+    </header>
+
+    <section class="group" id="photos-group">
+      <h2>1 · Photos</h2>
+      <div class="drop" id="drop">Drop photos here, or
+        <label class="file-btn">choose files<input id="photo" type="file" accept="image/*" multiple hidden></label>
+      </div>
+      <div class="tray" id="tray"></div>
+      <p class="hint">Click a photo to put it in the selected panel. Your photos never leave this machine.</p>
+    </section>
+
+    <section class="group" id="layout-group">
+      <h2>2 · Layout</h2>
+      <div class="layout-pick" id="layout-pick"></div>
+      <p class="hint" id="panel-info">Panel 1 of 3 — click the cover to pick a panel, drag it to pan.</p>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.01" value="1"></label>
+      <div class="row">
+        <button id="fill-all" type="button">Fill all panels</button>
+        <button id="reset-panel" type="button">Reset panel</button>
+      </div>
+    </section>
+
+    <section class="group" id="caption-group">
+      <h2>3 · Caption</h2>
+      <label>Caption <input id="caption" type="text" maxlength="40" value="Neon Coast"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="40" value="Golden Hour"></label>
+      <label>Lettering size <input id="caption-size" type="range" min="0.7" max="1.4" step="0.05" value="1"></label>
+      <div class="swatches" id="caption-colors"></div>
+      <div class="row">
+        <button id="pos-bottom" type="button" class="toggle on">Caption at bottom</button>
+        <button id="pos-top" type="button" class="toggle">Caption at top</button>
+      </div>
+    </section>
+
+    <section class="group" id="grade-group">
+      <h2>4 · Colour grade</h2>
+      <div class="grade-pick" id="grade-pick"></div>
+    </section>
+
+    <section class="group" id="export-group">
+      <h2>5 · Export</h2>
+      <div class="size-pick" id="size-pick"></div>
+      <button id="export" type="button" class="export">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+  </section>
+
+  <section class="stage">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover preview"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
